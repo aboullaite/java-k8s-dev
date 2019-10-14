@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: vendors
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: vendors
+    spec:
+      hostname: vendors
+      containers:
+      - env:
+        - name: CONSUL_HOST
+          value: consul
+        - name: CONSUL_PORT
+          value: "8500"
+        - name: MICRONAUT_SERVER_HOST
+          value: vendors
+        - name: MICRONAUT_SERVER_PORT
+          value: "8080"
+        image: gcr.io/containers-java/vendors
+        imagePullPolicy: IfNotPresent
+        name: vendors
+        resources: {}
+      initContainers:
+        - name: init-consul
+          image: busybox
+          command: ['sh', '-c', 'until nslookup consul; do echo waiting for consul; sleep 2; done;']
+        - name: init-vendors
+          image: busybox
+          command: ['sh', '-c', 'until nslookup vendors; do echo waiting for vendors; sleep 2; done;']
+      restartPolicy: Always

@@ -1,0 +1,124 @@
+openapi: 3.0.1
+info:
+  title: Pets
+  description: Exposes information about Pets
+  license:
+    name: Apache 2.0
+    url: http://petstore.notreal
+  version: "0.0"
+security: []
+tags:
+- name: Dogs
+- name: Cats
+paths:
+  /${pets.api.version}/pets:
+    get:
+      operationId: list
+      parameters: []
+      responses:
+        default:
+          description: list default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PetEntity'
+    post:
+      operationId: save
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PetEntity'
+        required: true
+      responses:
+        default:
+          description: save default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PetEntity'
+  /${pets.api.version}/pets/random:
+    get:
+      operationId: random
+      parameters: []
+      responses:
+        default:
+          description: random default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PetEntity'
+  /${pets.api.version}/pets/vendor/{name}:
+    get:
+      operationId: byVendor
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: byVendor default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PetEntity'
+  /${pets.api.version}/pets/{slug}:
+    get:
+      operationId: find
+      parameters:
+      - name: slug
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: find default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PetEntity'
+components:
+  schemas:
+    Pet:
+      required:
+      - image
+      - name
+      - slug
+      - type
+      - vendor
+      type: object
+      properties:
+        vendor:
+          minLength: 1
+          type: string
+        name:
+          minLength: 1
+          type: string
+        slug:
+          minLength: 1
+          type: string
+        image:
+          minLength: 1
+          type: string
+        type:
+          $ref: '#/components/schemas/PetType'
+    PetType:
+      type: string
+      enum:
+      - DOG
+      - CAT
+      - RODENT
+      - PIG
+      - DINOSAUR
+    PetEntity:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Pet'

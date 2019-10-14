@@ -1,0 +1,14 @@
+example.storefront.client.v1.fallback.$VendorClientFallbackDefinitionClass
+example.storefront.client.v1.$CommentClient$InterceptedDefinitionClass
+example.storefront.client.v1.$VendorClient$InterceptedDefinitionClass
+example.storefront.$MailControllerDefinitionClass
+example.storefront.client.v1.fallback.$PetClientFallbackDefinitionClass
+example.storefront.client.v1.$MailClient$InterceptedDefinitionClass
+example.storefront.client.v1.$TweetClient$InterceptedDefinitionClass
+example.storefront.client.v1.fallback.$$PetClientFallbackDefinition$InterceptedDefinitionClass
+example.storefront.client.v1.$PetClient$InterceptedDefinitionClass
+example.storefront.$EmailServiceDefinitionClass
+example.storefront.$ApplicationDefinitionClass
+example.storefront.$StoreControllerDefinitionClass
+example.storefront.$CommentControllerDefinitionClass
+example.storefront.$Application$ApplicationEventListener$onStartup1$InterceptedDefinitionClass

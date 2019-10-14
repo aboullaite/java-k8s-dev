@@ -1,0 +1,8 @@
+example.offers.$ApplicationDefinitionClass
+example.offers.$$ApplicationDefinition$InterceptedDefinitionClass
+example.offers.$Application$ApplicationEventListener$onStartup1$InterceptedDefinitionClass
+example.offers.client.v1.$PetClient$InterceptedDefinitionClass
+example.offers.$OffersControllerDefinitionClass
+example.offers.$OffersRepositoryDefinitionClass
+example.offers.$$OffersControllerDefinition$InterceptedDefinitionClass
+example.offers.$$OffersRepositoryDefinition$InterceptedDefinitionClass

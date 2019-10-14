@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sbms
+spec:
+  selector:
+    matchLabels:
+      app: sbms
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: sbms
+    spec:
+      containers:
+        - name: sbms
+          image: sbms
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /health
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 10
+            failureThreshold: 3

@@ -1,0 +1,3 @@
+resources:
+- comments-deployment.yaml
+- comments-service.yaml

@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pets
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: pets
+    spec:
+      hostname: pets
+      containers:
+      - env:
+        - name: CONSUL_HOST
+          value: consul
+        - name: CONSUL_PORT
+          value: "8500"
+        - name: MICRONAUT_SERVER_HOST
+          value: pets
+        - name: MICRONAUT_SERVER_PORT
+          value: "8080"
+        - name: MONGO_HOST
+          value: mongo
+        - name: MONGO_PORT
+          value: "27017"
+        image: gcr.io/containers-java/pets
+        imagePullPolicy: IfNotPresent
+        name: pets
+        resources: {}
+      initContainers:
+        - name: init-consul
+          image: busybox
+          command: ['sh', '-c', 'until nslookup consul; do echo waiting for consul; sleep 2; done;']
+        - name: init-mongo
+          image: busybox
+          command: ['sh', '-c', 'until nslookup mongo; do echo waiting for mongo; sleep 2; done;']
+      restartPolicy: Always

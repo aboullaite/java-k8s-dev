@@ -1,0 +1,3 @@
+resources:
+- vendors-deployment.yaml
+- vendors-service.yaml

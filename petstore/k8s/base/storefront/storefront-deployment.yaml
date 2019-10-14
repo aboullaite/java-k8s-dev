@@ -1,0 +1,44 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: storefront
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: storefront
+    spec:
+      hostname: storefront
+      containers:
+      - env:
+        - name: CONSUL_HOST
+          value: consul
+        - name: CONSUL_PORT
+          value: "8500"
+        - name: MICRONAUT_SERVER_HOST
+          value: storefront
+        image: gcr.io/containers-java/storefront
+        name: storefront
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        resources: {}
+      initContainers:
+        - name: init-consul
+          image: busybox
+          command: ['sh', '-c', 'until nslookup consul; do echo waiting for consul; sleep 2; done;']
+        - name: init-pets
+          image: busybox
+          command: ['sh', '-c', 'until nslookup pets; do echo waiting for pets; sleep 2; done;']
+        - name: init-offers
+          image: busybox
+          command: ['sh', '-c', 'until nslookup offers; do echo waiting for offers; sleep 2; done;']
+        - name: init-vendors
+          image: busybox
+          command: ['sh', '-c', 'until nslookup vendors; do echo waiting for vendors; sleep 2; done;']
+        - name: init-comments
+          image: busybox
+          command: ['sh', '-c', 'until nslookup comments; do echo waiting for comments; sleep 2; done;']
+      restartPolicy: Always

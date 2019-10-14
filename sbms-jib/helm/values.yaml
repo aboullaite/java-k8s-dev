@@ -1,0 +1,23 @@
+replicaCount: 2
+
+image:
+  repository: gcr.io/containers-java/sbms-jib
+  tag: latest
+  pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: "spring-boot-jib"
+
+service:
+  type: LoadBalancer
+  port: 8000
+  containerPort: 8080
+
+container:
+  ports:
+    - name: http
+      containerPort: 8080
+      protocol: TCP
+
+ingress:
+  enabled: false

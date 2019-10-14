@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: comments
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: comments
+    spec:
+      hostname: comments
+      containers:
+      - env:
+        - name: CONSUL_HOST
+          value: consul
+        - name: CONSUL_PORT
+          value: "8500"
+        - name: MICRONAUT_SERVER_HOST
+          value: comments
+        - name: MICRONAUT_SERVER_PORT
+          value: "8080"
+        - name: NEO4J_HOST
+          value: neo4j
+        - name: NEO4J_PORT
+          value: "7687"
+        image: gcr.io/containers-java/comments
+        name: comments
+        resources: {}
+        imagePullPolicy: IfNotPresent
+      initContainers:
+        - name: init-consul
+          image: busybox
+          command: ['sh', '-c', 'until nslookup consul; do echo waiting for consul; sleep 2; done;']
+        - name: init-neo4j
+          image: busybox
+          command: ['sh', '-c', 'until nslookup neo4j; do echo waiting for neo4j; sleep 2; done;']
+      restartPolicy: Always

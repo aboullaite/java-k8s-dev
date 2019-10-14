@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "spring-boot-jib.fullname" . }}-test-connection"
+  labels:
+{{ include "spring-boot-jib.labels" . | indent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args:  ['{{ include "spring-boot-jib.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never

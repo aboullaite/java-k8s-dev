@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - image: frontend
+        name: frontend
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+        resources: {}
+      restartPolicy: Always

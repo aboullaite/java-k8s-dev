@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sbms-jib
+spec:
+  selector:
+    matchLabels:
+      app: sbms-jib
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: sbms-jib
+    spec:
+      containers:
+        - name: sbms-jib
+          image: gcr.io/containers-java/sbms-jib:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8000
+      imagePullSecrets:
+        - name: gcr-scret

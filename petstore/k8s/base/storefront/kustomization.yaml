@@ -1,0 +1,3 @@
+resources:
+- storefront-deployment.yaml
+- storefront-service.yaml

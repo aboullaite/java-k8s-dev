@@ -1,0 +1,10 @@
+dependencies {
+    compile "io.micronaut:micronaut-http:${projectVersion}"
+    compile "io.micronaut:micronaut-runtime:${projectVersion}"
+    compile "io.micronaut:micronaut-validation:${projectVersion}"
+}
+compileJava {
+    options.compilerArgs += ["-parameters"]
+}
+
+project.gradle.startParameter.excludedTaskNames.add('jib')

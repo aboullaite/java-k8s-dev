@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: offers
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: offers
+    spec:
+      hostname: offers
+      containers:
+      - env:
+        - name: CONSUL_HOST
+          value: consul
+        - name: CONSUL_PORT
+          value: "8500"
+        - name: MICRONAUT_SERVER_HOST
+          value: offers
+        - name: MICRONAUT_SERVER_PORT
+          value: "8080"
+        - name: REDIS_HOST
+          value: redis
+        - name: REDIS_PORT
+          value: "6379"
+        image: gcr.io/containers-java/offers
+        imagePullPolicy: IfNotPresent
+        name: offers
+        resources: {}
+      initContainers:
+        - name: init-consul
+          image: busybox
+          command: ['sh', '-c', 'until nslookup consul; do echo waiting for consul; sleep 2; done;']
+        - name: init-redis
+          image: busybox
+          command: ['sh', '-c', 'until nslookup redis; do echo waiting for redis; sleep 2; done;']
+        - name: init-pets
+          image: busybox
+          command: ['sh', '-c', 'until nc -z pets 8080; do echo waiting for pets; sleep 2; done;']
+        - name: init-storefront
+          image: busybox
+          command: ['sh', '-c', 'until nc -z storefront 8080; do echo waiting for storefront; sleep 2; done;']
+      restartPolicy: Always

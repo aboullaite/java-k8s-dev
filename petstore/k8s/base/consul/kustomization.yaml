@@ -1,0 +1,3 @@
+resources:
+- consul-deployment.yaml
+- consul-service.yaml

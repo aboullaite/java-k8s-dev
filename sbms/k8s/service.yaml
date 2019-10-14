@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: sbms
+spec:
+  selector:
+    app: sbms
+  ports:
+    - protocol: TCP
+      port: 8080
+  type: LoadBalancer

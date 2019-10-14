@@ -1,0 +1,5 @@
+example.mail.ses.$AWSCredentialsProviderServiceDefinitionClass
+example.mail.$MailControllerDefinitionClass
+example.mail.sendgrid.$SendGridEmailServiceDefinitionClass
+example.mail.ses.$AWSSESMailServiceDefinitionClass
+example.mail.$$MailControllerDefinition$InterceptedDefinitionClass

@@ -1,0 +1,3 @@
+resources:
+- pets-deployment.yaml
+- pets-service.yaml

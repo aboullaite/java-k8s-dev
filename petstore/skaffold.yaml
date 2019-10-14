@@ -1,0 +1,27 @@
+apiVersion: skaffold/v1beta14
+kind: Config
+build:
+  local:
+    push: true
+  artifacts:
+    - image: gcr.io/containers-java/comments
+      jib:
+        project: comments
+    - image: gcr.io/containers-java/offers
+      jib:
+        project: offers
+    - image: gcr.io/containers-java/pets
+      jib:
+        project: pets
+    - image: gcr.io/containers-java/storefront
+      jib:
+        project: storefront
+    - image: gcr.io/containers-java/vendors
+      jib:
+        project: vendors
+deploy:
+#  kubectl:
+#    manifests:
+#      - k8s/base/*.yaml
+  kustomize:
+    path: k8s/overlays/local
