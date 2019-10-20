@@ -2,7 +2,7 @@ frontend/react/node_modules/
 frontend/react/package-lock.json
 ### Gradle template
 .gradle
-/build/
+**/build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -62,3 +62,5 @@ gen
 *.tar.gz
 *.rar
 hs_err_pid*
+**/target/
+

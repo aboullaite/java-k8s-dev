@@ -12,7 +12,7 @@
 	<artifactId>sbms</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>sbms</name>
-	<description>Spring Boot Application</description>
+	<description>Spring Boot Application !!!</description>
 
 	<properties>
 		<java.version>11</java.version>
