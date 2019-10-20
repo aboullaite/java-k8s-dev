@@ -1,8 +1,0 @@
-example.vendors.$$VendorServiceImplementationDefinitionClass
-example.vendors.$ApplicationDefinitionClass
-example.vendors.client.v1.$PetClientFallbackDefinitionClass
-example.vendors.client.v1.$PetClient$InterceptedDefinitionClass
-example.vendors.client.v1.$$PetClientFallbackDefinition$InterceptedDefinitionClass
-example.vendors.$$$VendorServiceImplementationDefinition$InterceptedDefinitionClass
-example.vendors.$VendorControllerDefinitionClass
-example.vendors.$$VendorControllerDefinition$InterceptedDefinitionClass
