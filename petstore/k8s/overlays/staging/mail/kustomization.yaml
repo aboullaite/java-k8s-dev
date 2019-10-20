@@ -1,0 +1,9 @@
+resources:
+  - ../../base/offers
+configMapGenerator:
+  - name: staging-configmap
+    behavior: merge
+    files:
+      - application.properties
+    literals:
+      - neo4j.url=bolt://${neo4j.host}:${neo4j.port:7687}

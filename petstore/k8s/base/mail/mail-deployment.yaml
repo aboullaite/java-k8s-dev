@@ -21,7 +21,7 @@ spec:
           value: mail
         - name: MICRONAUT_SERVER_PORT
           value: "8080"
-        image: mail
+        image: gcr.io/containers-java/mail
         name: mail
         imagePullPolicy: IfNotPresent
         resources: {}

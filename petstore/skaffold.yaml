@@ -1,22 +1,32 @@
 apiVersion: skaffold/v1beta14
 kind: Config
 build:
-  local:
-    push: true
+#  local:
+#    push: true
   artifacts:
+    - image: gcr.io/containers-java/frontend
+      context: ./frontend/react/
+      sync:
+        infer:
+          - '**/*.js'
+    - image: gcr.io/containers-java/storefront
+      context: .
+      jib:
+        project: storefront
     - image: gcr.io/containers-java/comments
+      context: .
       jib:
         project: comments
     - image: gcr.io/containers-java/offers
+      context: .
       jib:
         project: offers
     - image: gcr.io/containers-java/pets
+      context: .
       jib:
         project: pets
-    - image: gcr.io/containers-java/storefront
-      jib:
-        project: storefront
     - image: gcr.io/containers-java/vendors
+      context: .
       jib:
         project: vendors
 deploy:
@@ -25,3 +35,4 @@ deploy:
 #      - k8s/base/*.yaml
   kustomize:
     path: k8s/overlays/local
+

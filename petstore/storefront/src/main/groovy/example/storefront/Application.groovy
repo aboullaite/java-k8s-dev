@@ -45,7 +45,7 @@ class Application {
 
     @EventListener
     void onStartup(ServerStartupEvent event) {
-        def names = ["Fred", "Arthur", "Joe"]
+        def names = ["Fred", "Arthur", "Joe", "Ali"]
         List<Flowable<Vendor>> saves = []
         for (name in names) {
             saves.add(vendorClient.save(name).toFlowable().flatMap({ Vendor vendor ->

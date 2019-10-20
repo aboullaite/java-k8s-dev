@@ -1,0 +1,7 @@
+resources:
+  - ../../base
+  - offers
+commonLabels:
+  group: petstore
+namespace: default
+namePrefix: staging-

@@ -1,0 +1,6 @@
+resources:
+  - ../../base
+commonLabels:
+  group: petstore
+namespace: default
+namePrefix: dev-

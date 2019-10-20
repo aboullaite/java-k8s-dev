@@ -31,6 +31,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.Duration;
+import java.time.temporal.TemporalUnit;
 import java.util.List;
 
 /**
@@ -42,12 +43,10 @@ import java.util.List;
 public class OffersController implements OffersOperations {
 
     private final OffersRepository offersRepository;
-    private final Duration offerDelay;
 
 
-    public OffersController(OffersRepository offersRepository, @Value("${offers.delay:3s}") Duration offerDelay) {
+    public OffersController(OffersRepository offersRepository) {
         this.offersRepository = offersRepository;
-        this.offerDelay = offerDelay;
     }
 
     /**
@@ -59,7 +58,7 @@ public class OffersController implements OffersOperations {
         return offersRepository
                     .random()
                     .repeat(100)
-                    .delayElements(offerDelay);
+                    .delayElements(Duration.ofSeconds(5));
     }
 
     /**

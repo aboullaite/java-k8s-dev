@@ -1,6 +1,7 @@
 apply plugin: 'groovy'
 
 mainClassName = "example.storefront.Application"
+jib.from.image = 'gcr.io/distroless/java:debug'
 jib.to.image = 'gcr.io/containers-java/storefront'
 jib.to.credHelper = 'gcr'
 

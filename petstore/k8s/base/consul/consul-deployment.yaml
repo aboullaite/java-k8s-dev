@@ -11,7 +11,7 @@ spec:
         app: consul
     spec:
       containers:
-      - image: consul
+      - image: consul:1.6
         name: consul
         ports:
         - containerPort: 8500
