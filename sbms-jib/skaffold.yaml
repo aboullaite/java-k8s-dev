@@ -1,8 +1,6 @@
 apiVersion: skaffold/v1beta14
 kind: Config
 build:
-  local:
-    push: true
   artifacts:
     - image: gcr.io/containers-java/sbms-jib
       jib: {}
