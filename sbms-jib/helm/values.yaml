@@ -1,4 +1,4 @@
-replicaCount: 2
+replicaCount: 1
 
 image:
   repository: gcr.io/containers-java/sbms-jib
@@ -6,11 +6,11 @@ image:
   pullPolicy: IfNotPresent
 
 nameOverride: ""
-fullnameOverride: "spring-boot-jib"
+fullnameOverride: "sbms"
 
 service:
   type: LoadBalancer
-  port: 8000
+  port: 8080
   containerPort: 8080
 
 container:

@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: sbms-jib
+  name: sbms
 spec:
   selector:
     app: sbms-jib

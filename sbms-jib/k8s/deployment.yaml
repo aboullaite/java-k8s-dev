@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sbms-jib
+  name: sbms
 spec:
   selector:
     matchLabels:
       app: sbms-jib
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
