@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: sbms-jib
-          image: gcr.io/containers-java/sbms-jib:latest
+          image: gcr.io/containers-java/sbms-jib
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
