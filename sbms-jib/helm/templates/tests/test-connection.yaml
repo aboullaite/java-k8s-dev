@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: "{{ include "spring-boot-jib.fullname" . }}-test-connection"
   labels:
-{{ include "spring-boot-jib.labels" . | indent 4 }}
+  {{ include "spring-boot-jib.labels" . | indent 4 }}
   annotations:
     "helm.sh/hook": test-success
 spec:

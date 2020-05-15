@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vendors
@@ -12,19 +12,19 @@ spec:
     spec:
       hostname: vendors
       containers:
-      - env:
-        - name: CONSUL_HOST
-          value: consul
-        - name: CONSUL_PORT
-          value: "8500"
-        - name: MICRONAUT_SERVER_HOST
-          value: vendors
-        - name: MICRONAUT_SERVER_PORT
-          value: "8080"
-        image: gcr.io/containers-java/vendors
-        imagePullPolicy: IfNotPresent
-        name: vendors
-        resources: {}
+        - env:
+            - name: CONSUL_HOST
+              value: consul
+            - name: CONSUL_PORT
+              value: "8500"
+            - name: MICRONAUT_SERVER_HOST
+              value: vendors
+            - name: MICRONAUT_SERVER_PORT
+              value: "8080"
+          image: gcr.io/containers-java/vendors
+          imagePullPolicy: IfNotPresent
+          name: vendors
+          resources: {}
       initContainers:
         - name: init-consul
           image: busybox

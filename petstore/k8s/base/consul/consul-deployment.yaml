@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: consul
@@ -11,9 +11,9 @@ spec:
         app: consul
     spec:
       containers:
-      - image: consul:1.6
-        name: consul
-        ports:
-        - containerPort: 8500
-        resources: {}
+        - image: consul:1.6
+          name: consul
+          ports:
+            - containerPort: 8500
+          resources: {}
       restartPolicy: Always

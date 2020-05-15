@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: storefront
@@ -12,19 +12,19 @@ spec:
     spec:
       hostname: storefront
       containers:
-      - env:
-        - name: CONSUL_HOST
-          value: consul
-        - name: CONSUL_PORT
-          value: "8500"
-        - name: MICRONAUT_SERVER_HOST
-          value: storefront
-        image: gcr.io/containers-java/storefront
-        name: storefront
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 8080
-        resources: {}
+        - env:
+            - name: CONSUL_HOST
+              value: consul
+            - name: CONSUL_PORT
+              value: "8500"
+            - name: MICRONAUT_SERVER_HOST
+              value: storefront
+          image: gcr.io/containers-java/storefront
+          name: storefront
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          resources: {}
       initContainers:
         - name: init-consul
           image: busybox

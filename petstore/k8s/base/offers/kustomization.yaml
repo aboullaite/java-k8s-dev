@@ -1,3 +1,3 @@
 resources:
-- offers-deployment.yaml
-- offers-service.yaml
+  - offers-deployment.yaml
+  - offers-service.yaml

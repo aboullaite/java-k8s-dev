@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis
@@ -11,9 +11,9 @@ spec:
         app: redis
     spec:
       containers:
-      - image: redis
-        name: redis
-        ports:
-        - containerPort: 6379
-        resources: {}
+        - image: redis:6.0
+          name: redis
+          ports:
+            - containerPort: 6379
+          resources: {}
       restartPolicy: Always

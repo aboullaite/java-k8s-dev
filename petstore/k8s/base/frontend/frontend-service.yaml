@@ -4,10 +4,10 @@ metadata:
   name: frontend
 spec:
   ports:
-  - name: "3000"
-    protocol: TCP
-    port: 3000
-    targetPort: 3000
+    - name: "3000"
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
   type: LoadBalancer
   selector:
     app: frontend

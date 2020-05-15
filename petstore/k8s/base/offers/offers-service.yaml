@@ -4,9 +4,9 @@ metadata:
   name: offers
 spec:
   ports:
-  - name: "8080"
-    port: 8085
-    targetPort: 8080
+    - name: "8080"
+      port: 8085
+      targetPort: 8080
   type: LoadBalancer
   selector:
     app: offers

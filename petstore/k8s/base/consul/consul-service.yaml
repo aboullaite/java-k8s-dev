@@ -5,8 +5,8 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - name: "8500"
-    port: 8500
-    targetPort: 8500
+    - name: "8500"
+      port: 8500
+      targetPort: 8500
   selector:
     app: consul

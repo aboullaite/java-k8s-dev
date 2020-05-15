@@ -1,13 +1,13 @@
 resources:
-- mongo
-- consul
-- redis
-- neo4j
-- mail
-- comments
-- pets
-- offers
-- vendors
-- storefront
-- frontend
+  - mongo
+  - consul
+  - redis
+  - neo4j
+  #- mail
+  - comments
+  - pets
+  - offers
+  - vendors
+  - storefront
+  - frontend
 

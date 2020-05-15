@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
@@ -12,10 +12,10 @@ spec:
         app: frontend
     spec:
       containers:
-      - image: gcr.io/containers-java/frontend
-        name: frontend
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 3000
-        resources: {}
+        - image: gcr.io/containers-java/frontend
+          name: frontend
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          resources: {}
       restartPolicy: Always

@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: neo4j
@@ -11,13 +11,13 @@ spec:
         app: neo4j
     spec:
       containers:
-      - env:
-        - name: NEO4J_AUTH
-          value: none
-        image: neo4j
-        name: neo4j
-        ports:
-        - containerPort: 7687
-        - containerPort: 7474
-        resources: {}
+        - env:
+            - name: NEO4J_AUTH
+              value: none
+          image: neo4j:3.5
+          name: neo4j
+          ports:
+            - containerPort: 7687
+            - containerPort: 7474
+          resources: {}
       restartPolicy: Always

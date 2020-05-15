@@ -4,8 +4,8 @@ metadata:
   name: mongo
 spec:
   ports:
-  - name: "27017"
-    port: 27017
-    targetPort: 27017
+    - name: "27017"
+      port: 27017
+      targetPort: 27017
   selector:
     app: mongo
