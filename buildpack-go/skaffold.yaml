@@ -1,0 +1,11 @@
+apiVersion: skaffold/v1
+kind: Config
+build:
+  artifacts:
+    - image: gcr.io/containers-java/go-bp
+      buildpack:
+        builder: "gcr.io/buildpacks/builder"
+deploy:
+  kubectl:
+    manifests:
+      - k8s.yaml

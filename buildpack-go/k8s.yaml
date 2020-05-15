@@ -1,0 +1,37 @@
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: default
+  name: go-buildpack
+spec:
+  ports:
+    - name: "8080"
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
+  selector:
+    go-buildpack: ""
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: go-buildpack
+spec:
+  selector:
+    matchLabels:
+      go-buildpack: ""
+  template:
+    metadata:
+      labels:
+        go-buildpack: ""
+    spec:
+      containers:
+        - name: go-buildpack
+          image: gcr.io/containers-java/go-bp
+          env:
+            - name: HELLO_MSG
+              value: Kubernetes
