@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: sbms
-          image: sbms
+          image: gcr.io/containers-java/sbms:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
