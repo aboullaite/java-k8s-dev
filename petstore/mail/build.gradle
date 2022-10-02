@@ -1,6 +1,5 @@
 mainClassName = "example.mail.Application"
-jib.to.image = 'gcr.io/containers-java/mail'
-jib.to.credHelper = 'gcr'
+jib.to.image = 'gcr.io/mohamed-playground/mail'
 apply plugin: 'groovy'
 
 dependencies {
@@ -21,4 +20,3 @@ dependencies {
 shadowJar {
     mergeServiceFiles()
 }
-project.gradle.startParameter.excludedTaskNames.add('jib')

@@ -31,5 +31,3 @@ task eject(type: YarnTask, dependsOn: 'yarn') {
     description = 'Eject from the create-react-app scripts'
     args = ['run', 'eject']
 }
-
-project.gradle.startParameter.excludedTaskNames.add('jib')

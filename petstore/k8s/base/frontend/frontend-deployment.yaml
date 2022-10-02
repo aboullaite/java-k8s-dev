@@ -12,7 +12,7 @@ spec:
         app: frontend
     spec:
       containers:
-        - image: gcr.io/containers-java/frontend
+        - image: gcr.io/mohamed-playground/frontend
           name: frontend
           imagePullPolicy: IfNotPresent
           ports:

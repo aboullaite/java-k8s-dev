@@ -1,10 +1,8 @@
 apply plugin: 'groovy'
 
 mainClassName = "example.storefront.Application"
-jib.from.image = 'gcr.io/distroless/java:debug'
-jib.to.image = 'gcr.io/containers-java/storefront'
-jib.to.credHelper = 'gcr'
-
+jib.to.image = 'gcr.io/mohamed-playground/storefront'
+jib.to.credHelper='gcr'
 dependencies {
   compileOnly "io.micronaut:micronaut-inject-groovy"
   compileOnly "io.micronaut:micronaut-inject-java"

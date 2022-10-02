@@ -1,8 +1,7 @@
 apply plugin: 'groovy'
 
 mainClassName = "example.comments.Application"
-jib.to.image = 'gcr.io/containers-java/comments'
-jib.to.credHelper = 'gcr'
+jib.to.image = 'gcr.io/mohamed-playground/comments'
 
 repositories {
     maven { url "https://repo.grails.org/grails/core" }

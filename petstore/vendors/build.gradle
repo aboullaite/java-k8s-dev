@@ -1,7 +1,6 @@
 apply plugin: 'groovy'
 mainClassName = "example.vendors.Application"
-jib.to.image = 'gcr.io/containers-java/vendors'
-jib.to.credHelper = 'gcr'
+jib.to.image = 'gcr.io/mohamed-playground/vendors'
 dependencies {
     compileOnly "io.micronaut:micronaut-inject-groovy"
 

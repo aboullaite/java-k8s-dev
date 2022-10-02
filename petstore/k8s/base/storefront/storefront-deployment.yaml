@@ -19,7 +19,7 @@ spec:
               value: "8500"
             - name: MICRONAUT_SERVER_HOST
               value: storefront
-          image: gcr.io/containers-java/storefront
+          image: gcr.io/mohamed-playground/storefront
           name: storefront
           imagePullPolicy: IfNotPresent
           ports:

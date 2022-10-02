@@ -25,7 +25,7 @@ spec:
               value: neo4j
             - name: NEO4J_PORT
               value: "7687"
-          image: gcr.io/containers-java/comments
+          image: gcr.io/mohamed-playground/comments
           name: comments
           resources: {}
           imagePullPolicy: IfNotPresent

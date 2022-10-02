@@ -25,7 +25,7 @@ spec:
               value: mongo
             - name: MONGO_PORT
               value: "27017"
-          image: gcr.io/containers-java/pets
+          image: gcr.io/mohamed-playground/pets
           imagePullPolicy: IfNotPresent
           name: pets
           resources: {}

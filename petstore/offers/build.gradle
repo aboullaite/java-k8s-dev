@@ -1,6 +1,5 @@
 mainClassName = "example.offers.Application"
-jib.to.image = 'gcr.io/containers-java/offers'
-jib.to.credHelper = 'gcr'
+jib.to.image = 'gcr.io/mohamed-playground/offers'
 
 apply plugin: 'groovy'
 

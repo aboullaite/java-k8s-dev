@@ -5,14 +5,17 @@ buildscript {
         }
     }
     dependencies {
-        classpath "com.github.jengelman.gradle.plugins:shadow:2.0.2"
+        classpath "com.github.jengelman.gradle.plugins:shadow:5.2.0"
         classpath "io.spring.gradle:dependency-management-plugin:1.0.5.RELEASE"
-        classpath "gradle.plugin.com.google.cloud.tools:jib-gradle-plugin:1.6.1"
+        classpath "gradle.plugin.com.google.cloud.tools:jib-gradle-plugin:3.2.0"
 
     }
 }
-subprojects { project ->
 
+plugins {
+    id 'com.google.cloud.tools.jib' version '3.3.0' apply false
+}
+subprojects { project ->
     if(!project.path.contains(':frontend')) {
         apply plugin:"java"
         apply plugin:"io.spring.dependency-management"
@@ -21,10 +24,10 @@ subprojects { project ->
 
             apply plugin:"application"
             apply plugin: 'com.github.johnrengelman.shadow'
+            apply plugin:"com.google.cloud.tools.jib"
             shadowJar {
                 mergeServiceFiles()
             }
-            apply plugin: "com.google.cloud.tools.jib"
         }
 
         repositories {

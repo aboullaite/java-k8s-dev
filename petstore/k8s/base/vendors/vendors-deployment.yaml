@@ -21,7 +21,7 @@ spec:
               value: vendors
             - name: MICRONAUT_SERVER_PORT
               value: "8080"
-          image: gcr.io/containers-java/vendors
+          image: gcr.io/mohamed-playground/vendors
           imagePullPolicy: IfNotPresent
           name: vendors
           resources: {}

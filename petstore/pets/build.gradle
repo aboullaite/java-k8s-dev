@@ -1,7 +1,6 @@
 mainClassName = "example.pets.Application"
 
-jib.to.image = 'gcr.io/containers-java/pets'
-jib.to.credHelper = 'gcr'
+jib.to.image = 'gcr.io/mohamed-playground/pets'
 
 dependencies {
     annotationProcessor "io.micronaut:micronaut-inject-java"

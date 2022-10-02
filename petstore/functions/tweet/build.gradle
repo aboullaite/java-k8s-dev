@@ -70,5 +70,3 @@ task invoke(type: AWSLambdaInvokeTask) {
         println "Lambda function result: " + new String(invokeResult.payload.array(), "UTF-8")
     }
 }
-
-project.gradle.startParameter.excludedTaskNames.add('jib')

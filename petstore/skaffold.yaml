@@ -1,38 +1,41 @@
-apiVersion: skaffold/v1
+apiVersion: skaffold/v2beta29
 kind: Config
 build:
-  #  local:
-  #    push: true
+  tagPolicy:
+    sha256:  {}
   artifacts:
-    - image: gcr.io/containers-java/frontend
+    - image: gcr.io/mohamed-playground/frontend
       context: ./frontend/react/
       sync:
         infer:
           - '**/*.js'
-    - image: gcr.io/containers-java/storefront
+    - image: gcr.io/mohamed-playground/storefront
       context: .
       jib:
         project: storefront
-    - image: gcr.io/containers-java/comments
+        type: gradle
+    - image: gcr.io/mohamed-playground/comments
       context: .
       jib:
         project: comments
-    - image: gcr.io/containers-java/offers
+    - image: gcr.io/mohamed-playground/offers
       context: .
       jib:
         project: offers
-    - image: gcr.io/containers-java/pets
+    - image: gcr.io/mohamed-playground/pets
       context: .
       jib:
         project: pets
-    - image: gcr.io/containers-java/vendors
+    - image: gcr.io/mohamed-playground/vendors
       context: .
       jib:
         project: vendors
+
 deploy:
   #  kubectl:
   #    manifests:
   #      - k8s/base/*.yaml
   kustomize:
-    path: k8s/overlays/local
+    paths:
+      - k8s/overlays/local
 
