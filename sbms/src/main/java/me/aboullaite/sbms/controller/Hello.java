@@ -17,7 +17,7 @@ public class Hello {
     @GetMapping(value = "/", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Event> streamMessages() {
 
-        Flux<Event> eventFlux = Flux.fromStream(Stream.generate(() -> new Event("Hello Docker!", LocalTime.now())));
+        Flux<Event> eventFlux = Flux.fromStream(Stream.generate(() -> new Event("Hello from Container!", LocalTime.now())));
         Flux<Long> duratioFlux = Flux.interval(Duration.ofSeconds(1));
         return Flux.zip(eventFlux, duratioFlux).map(Tuple2::getT1);
 

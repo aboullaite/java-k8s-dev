@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/containers-java/sbms-jib
+  repository: gcr.io/mohamed-playground/sbms-jib
   tag: latest
   pullPolicy: IfNotPresent
 

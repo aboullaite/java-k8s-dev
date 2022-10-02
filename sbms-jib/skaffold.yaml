@@ -2,7 +2,7 @@ apiVersion: skaffold/v1
 kind: Config
 build:
   artifacts:
-    - image: gcr.io/containers-java/sbms-jib
+    - image: gcr.io/mohamed-playground/sbms-jib
       jib: {}
 deploy:
   kubectl:
@@ -13,6 +13,6 @@ deploy:
 #      - name: spring-boot-jib
 #        chartPath: helm
 #        values:
-#          image.repository: gcr.io/containers-java/sbms-jib
+#          image.repository: gcr.io/mohamed-playground/sbms-jib
 #        setValues:
 #          image.tag: ""
