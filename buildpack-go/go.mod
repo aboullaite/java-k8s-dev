@@ -1,1 +1,0 @@
-module "buildpack-go"
