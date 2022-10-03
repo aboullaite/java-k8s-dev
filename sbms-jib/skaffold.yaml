@@ -1,4 +1,4 @@
-apiVersion: skaffold/v1
+apiVersion: skaffold/v2beta29
 kind: Config
 build:
   artifacts:
@@ -8,6 +8,11 @@ deploy:
   kubectl:
     manifests:
       - k8s/*.yaml
+portForward:
+  - resourceType: service
+    resourceName: sbms
+    port: 8080
+    localPort: 9000
 #  helm:
 #    releases:
 #      - name: spring-boot-jib
