@@ -4,7 +4,8 @@ jib.to.image = 'gcr.io/mohamed-playground/offers'
 apply plugin: 'groovy'
 
 dependencies {
-    compileOnly "io.micronaut:micronaut-inject-java"
+    annotationProcessor "io.micronaut:micronaut-inject-java"
+    annotationProcessor "io.micronaut:micronaut-validation"
 
     compile project(":api")
     compile "io.micronaut.configuration:micronaut-hibernate-validator"

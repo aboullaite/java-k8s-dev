@@ -70,7 +70,7 @@ class StoreController {
 
     @Get(uri = "/offers", produces = MediaType.TEXT_EVENT_STREAM)
     Flowable<Event<Offer>> offers() {
-        offersClient.jsonStream(HttpRequest.GET('/v1/offers'), Offer).map({ offer ->
+        offersClient.jsonStream(HttpRequest.GET('/v1/offers/'), Offer).map({ offer ->
             Event.of(offer)
         })
     }
