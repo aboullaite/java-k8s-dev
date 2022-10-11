@@ -4,20 +4,38 @@ build:
   artifacts:
     - image: gcr.io/mohamed-playground/sbms-jib
       jib: {}
-deploy:
-  kubectl:
-    manifests:
-      - k8s/*.yaml
+test:
+  - image: gcr.io/mohamed-playground/sbms-jib
+    structureTests:
+      - ./structured-tests.yaml
 portForward:
   - resourceType: service
     resourceName: sbms
     port: 8080
     localPort: 9000
-#  helm:
-#    releases:
-#      - name: spring-boot-jib
-#        chartPath: helm
-#        values:
-#          image.repository: gcr.io/mohamed-playground/sbms-jib
-#        setValues:
-#          image.tag: ""
+deploy:
+  kubectl:
+    manifests:
+      - k8s/*.yaml
+
+profiles:
+### buildpacks profile
+- name: pack
+  build:
+    artifacts:
+    - image: gcr.io/mohamed-playground/sbms-jib
+      buildpacks:
+        builder: gcr.io/buildpacks/builder:v1
+        env:
+          - GOOGLE_RUNTIME_VERSION=17
+### Helm profile
+- name: helm
+  deploy:
+    helm:
+      releases:
+      - name: spring-boot-jib
+        chartPath: helm
+        artifactOverrides:
+          image: gcr.io/mohamed-playground/sbms-jib
+        imageStrategy:
+          helm: {}
